@@ -17,6 +17,6 @@ function mostrarAumento()
 	aumento=sueldoBasico*10/100;
 	sueldoFinal=aumento+sueldoBasico;
 	
-	resultado.value=sueldoFinal;
+	resultado.value=sueldoFinal; 
 
 }
