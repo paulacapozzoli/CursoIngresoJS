@@ -14,15 +14,32 @@ function comenzar()
 {
 	//Genero el número RANDOM entre 1 y 100
 	numeroSecreto=Math.floor((Math.random ()*100) +1);
-		alert (numeroSecreto);
-	 
-		//alert(numeroSecreto );
-	
-
+		//alert (numeroSecreto);
+		contadorIntentos=0;
 }
 
 function verificar()
 {
-	
+	var numeroIngresado;
+	contadorIntentos=contadorIntentos+1;
+	numeroIngresado=numero.value;
+	//alert(numeroIngresado);
+	intento.value=contadorIntentos;
+	if (numeroIngresado==numeroSecreto)
+	{
+		alert("Sos un genio");
+	}
+	else
+	{
+		if (numeroIngresado<numeroSecreto)
+		{
+			alert("Falta");
+		}
+		else
+		{
+			alert("Te pasaste");
+		}
+	}
+
 	
 }
