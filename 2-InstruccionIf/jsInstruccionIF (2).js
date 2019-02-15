@@ -1,6 +1,14 @@
 function mostrar()
 {
-//tomo la edad  
+	var suEdad;
+
+	suEdad=edad.value;//tomo la edad
+
+	if (suEdad>17)
+
+{
+	alert("Es mayor de edad");
+}
 
 
 
