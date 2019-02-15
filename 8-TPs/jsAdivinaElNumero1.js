@@ -28,7 +28,7 @@ function verificar()
 	intentos.value=contadorIntentos;
 	if (numeroIngresado==numeroSecreto)
 	{
-		mensaje="Usted es un ganador!!! y en solo "+contadorIntentos+" intentos";
+		mensaje="Sos un genio y en solo "+contadorIntentos+" intentos";
 	}
 	else
 	{
