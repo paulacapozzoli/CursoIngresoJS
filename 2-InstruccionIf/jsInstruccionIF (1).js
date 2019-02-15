@@ -1,7 +1,14 @@
 function mostrar()
 {
-//tomo la edad  
+	var suEdad;
 
+suEdad=edad.value;//tomo la edad  
+
+if (suEdad==15)
+{
+	alert("niña bonita");
+
+}
 
 
 }//FIN DE LA FUNCIÓN
