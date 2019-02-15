@@ -9,6 +9,7 @@ de no ser igual se debe informar si “falta…”  para llegar al número secre
 */
 var numeroSecreto; 
 var contadorIntentos;
+var mensaje;
 
 function comenzar()
 {
@@ -24,22 +25,22 @@ function verificar()
 	contadorIntentos=contadorIntentos+1;
 	numeroIngresado=numero.value;
 	//alert(numeroIngresado);
-	intento.value=contadorIntentos;
+	intentos.value=contadorIntentos;
 	if (numeroIngresado==numeroSecreto)
 	{
-		alert("Sos un genio");
+		mensaje="Usted es un ganador!!! y en solo "+contadorIntentos+" intentos";
 	}
 	else
 	{
 		if (numeroIngresado<numeroSecreto)
 		{
-			alert("Falta");
+			mensaje="Falta";
 		}
 		else
 		{
-			alert("Te pasaste");
+			mensaje="Te pasaste";
 		}
 	}
-
-	
+//un solo alert y que cuando gano me muestre en qué intento gané
+alert(mensaje);	
 }
