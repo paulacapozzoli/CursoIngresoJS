@@ -4,7 +4,7 @@ function mostrar()
 var repetciones = prompt("ingrese el número de repeticiones");
 var numeroIngresado;
 var numeroAnterior;
-var 
+var acumulador
 
 numeroIngresado=prompt("Ingrese un número");
 numeroIngresado=parseInt(numeroIngresado);
