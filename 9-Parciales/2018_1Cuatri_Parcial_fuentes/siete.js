@@ -15,6 +15,8 @@ mostrar por alert
 	var contadorVelocidad;
 	var acumuladorVelocidad;
 	var promedioVelocidad;
+	var velocidadMenor;
+	var combustibleMenor;
 
 	contador=0;
 	contadorVelocidad=0;
@@ -36,6 +38,19 @@ mostrar por alert
 				{
 					tipoCombustible=prompt("ERROR, Ingrese tipo de combustible sólido 's' o líquido 'l'");
 				}
+			if(contador==0)//para la primer carga completa de datos 
+				{
+					velocidadMenor=velocidad;
+					combustibleMenor=tipoCombustible;
+				}
+			else
+				{
+					if (velocidad<velocidadMenor)//para el resto de las cargas
+						{
+							velocidad=velocidadMenor;
+							tipoCombustible=combustibleMenor;
+						}
+				}
 
 			acumuladorVelocidad=parseInt(acumuladorVelocidad);
 			acumuladorVelocidad=acumuladorVelocidad+velocidad;
@@ -45,6 +60,8 @@ mostrar por alert
 
 	promedioVelocidad=acumuladorVelocidad/contadorVelocidad;
 
-	alert("\nEl promedio de velocidades es "+promedioVelocidad);
+	alert("\nEl promedio de velocidades es "+promedioVelocidad+"km/h"+
+			"\nLa velocidad más baja es de "+velocidadMenor+"km/h"+
+			"\ncon el tipo de combustible "+combustibleMenor);
 
 }
