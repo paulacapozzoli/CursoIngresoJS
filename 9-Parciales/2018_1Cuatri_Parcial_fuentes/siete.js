@@ -17,6 +17,7 @@ mostrar por alert
 	var promedioVelocidad;
 	var velocidadMenor;
 	var combustibleMenor;
+	var velocidadMayor;
 	var contadorL100;
 
 	contador=0;
@@ -44,6 +45,7 @@ mostrar por alert
 				{
 					velocidadMenor=velocidad;
 					combustibleMenor=tipoCombustible;
+					velocidadMayor=velocidad;
 				}
 			else
 				{
@@ -55,7 +57,11 @@ mostrar por alert
 				}
 			if (tipoCombustible=="l"&&velocidad>100) 
 				{
-					contadorL100++;
+					contadorL100++;//sólo necesito contar si es "l" es mayor a 100
+				}
+			if (velocidad>velocidadMayor&&tipoCombustible=="s")
+				{
+					velocidadMayor=velocidad;//no va combustibleMayor porque solo muestro la velocidad				
 				}
 
 			acumuladorVelocidad=parseInt(acumuladorVelocidad);
@@ -69,6 +75,7 @@ mostrar por alert
 	alert("\nEl promedio de velocidades es "+promedioVelocidad+"km/h"+
 			"\nLa velocidad más baja es de "+velocidadMenor+"km/h"+
 			"\ncon el tipo de combustible "+combustibleMenor+
-			"\nCantidad de combustibles líquidos que superan los 100km/h "+contadorL100);
+			"\nCantidad de combustibles líquidos que superan los 100km/h "+contadorL100+
+			"\nLa mayor velocidad de combustible sólido es "+velocidadMayor);
 
 }
