@@ -12,8 +12,13 @@ mostrar por alert
 	var velocidad;
 	var tipoCombustible;
 	var contador;
+	var contadorVelocidad;
+	var acumuladorVelocidad;
+	var promedioVelocidad;
 
 	contador=0;
+	contadorVelocidad=0;
+	acumuladorVelocidad=0;
 
 	while(contador<5)//limita el contador a 5 vueltas
 		{
@@ -23,6 +28,7 @@ mostrar por alert
 				{
 					velocidad=prompt("ERROR, Ingrese velocidad entre 0 y 250km/h");
 				}
+			velocidad=parseInt(velocidad);
 
 			tipoCombustible=prompt("Ingrese tipo de combustible");
 			//valido tipo de combustible
@@ -31,7 +37,14 @@ mostrar por alert
 					tipoCombustible=prompt("ERROR, Ingrese tipo de combustible sólido 's' o líquido 'l'");
 				}
 
+			acumuladorVelocidad=parseInt(acumuladorVelocidad);
+			acumuladorVelocidad=acumuladorVelocidad+velocidad;
 			contador++; //suma 1 vuelta al contador para agotar la iteración hasta 5 veces
+			contadorVelocidad++; //suma cantidad de cargas de velocidad para el promedio
 		}
+
+	promedioVelocidad=acumuladorVelocidad/contadorVelocidad;
+
+	alert("\nEl promedio de velocidades es "+promedioVelocidad);
 
 }
