@@ -5,7 +5,7 @@ hasta 5 vehículos
 mostrar por alert
 1. promedio de todas las velocidades
 2. velocidad más baja y el tipo de combustible del vehiculo
-3. cantidad de combustible liquido si la velocidad supera los 100km/h
+3. cantidad de veces que el combustible liquido supera los 100km/h de velocidad
 4. la velocidad más alta del combustible sólido
 */
 {
@@ -17,10 +17,12 @@ mostrar por alert
 	var promedioVelocidad;
 	var velocidadMenor;
 	var combustibleMenor;
+	var contadorL100;
 
 	contador=0;
 	contadorVelocidad=0;
 	acumuladorVelocidad=0;
+	contadorL100=0;
 
 	while(contador<5)//limita el contador a 5 vueltas
 		{
@@ -38,7 +40,7 @@ mostrar por alert
 				{
 					tipoCombustible=prompt("ERROR, Ingrese tipo de combustible sólido 's' o líquido 'l'");
 				}
-			if(contador==0)//para la primer carga completa de datos 
+			if(contador==0)//para la primer carga completa de datos y tener un valor inicial con qué comparar 
 				{
 					velocidadMenor=velocidad;
 					combustibleMenor=tipoCombustible;
@@ -51,6 +53,10 @@ mostrar por alert
 							tipoCombustible=combustibleMenor;
 						}
 				}
+			if (tipoCombustible=="l"&&velocidad>100) 
+				{
+					contadorL100++;
+				}
 
 			acumuladorVelocidad=parseInt(acumuladorVelocidad);
 			acumuladorVelocidad=acumuladorVelocidad+velocidad;
@@ -62,6 +68,7 @@ mostrar por alert
 
 	alert("\nEl promedio de velocidades es "+promedioVelocidad+"km/h"+
 			"\nLa velocidad más baja es de "+velocidadMenor+"km/h"+
-			"\ncon el tipo de combustible "+combustibleMenor);
+			"\ncon el tipo de combustible "+combustibleMenor+
+			"\nCantidad de combustibles líquidos que superan los 100km/h "+contadorL100);
 
 }
