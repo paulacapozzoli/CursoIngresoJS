@@ -78,12 +78,12 @@ function mostrar()
 							paisMenor=pais;
 						}
 				}
-				
+
+			
 			contadorKm++;
 			acumuladorKm=parseInt(acumuladorKm);
 			acumuladorKm=acumuladorKm+superficie;			
 			promedioKm=acumuladorKm/contadorKm;
-
 			respuesta=prompt("Ingrese 'si' para continuar");	
 		}
 
