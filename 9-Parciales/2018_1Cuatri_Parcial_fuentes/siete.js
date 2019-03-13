@@ -17,65 +17,67 @@ mostrar por alert
 	var promedioVelocidad;
 	var velocidadMenor;
 	var combustibleMenor;
-	var velocidadMayor;
-	var contadorL100;
+	var contadorLiquido100;
+	var velocidadAltaSolido;
 
 	contador=0;
 	contadorVelocidad=0;
 	acumuladorVelocidad=0;
-	contadorL100=0;
+	contadorLiquido100=0;
 
-	while(contador<5)//limita el contador a 5 vueltas
+	while(contador<5)
 		{
 			velocidad=prompt("Ingrese velocidad");
 			//valido velocidad
 			while(velocidad<0||velocidad>250)
 				{
-					velocidad=prompt("ERROR, Ingrese velocidad entre 0 y 250km/h");
+					velocidad=prompt("ERROR, ingresar velocidad entre 0 y 250km/h");
 				}
 			velocidad=parseInt(velocidad);
 
-			tipoCombustible=prompt("Ingrese tipo de combustible");
+			tipoCombustible=prompt("Ingrese el tipo de combustible líquido o sólido");
 			//valido tipo de combustible
-			while(tipoCombustible!="s"&&tipoCombustible!="l")
+			while(tipoCombustible!="l"&&tipoCombustible!="s")
 				{
-					tipoCombustible=prompt("ERROR, Ingrese tipo de combustible sólido 's' o líquido 'l'");
+					tipoCombustible=prompt("ERROR, ingresar tipo 'l' o tipo 's'");
 				}
-			if(contador==0)//para la primer carga completa de datos y tener un valor inicial con qué comparar 
+
+			if(contador==0)
 				{
 					velocidadMenor=velocidad;
 					combustibleMenor=tipoCombustible;
-					velocidadMayor=velocidad;
+					velocidadAltaSolido=velocidad;
 				}
 			else
 				{
-					if (velocidad<velocidadMenor)//para el resto de las cargas
+					if (velocidad<velocidadMenor)
 						{
 							velocidad=velocidadMenor;
 							tipoCombustible=combustibleMenor;
 						}
 				}
-			if (tipoCombustible=="l"&&velocidad>100) 
+			if (velocidad>100&&tipoCombustible=="l")
 				{
-					contadorL100++;//sólo necesito contar si es "l" es mayor a 100
-				}
-			if (velocidad>velocidadMayor&&tipoCombustible=="s")
-				{
-					velocidadMayor=velocidad;//no va combustibleMayor porque solo muestro la velocidad				
+					contadorLiquido100++;
 				}
 
-			acumuladorVelocidad=parseInt(acumuladorVelocidad);
+			if (velocidad>velocidadAltaSolido&&tipoCombustible=="s")
+				{
+					velocidadAltaSolido=velocidad;
+				}
+
 			acumuladorVelocidad=acumuladorVelocidad+velocidad;
-			contador++; //suma 1 vuelta al contador para agotar la iteración hasta 5 veces
-			contadorVelocidad++; //suma cantidad de cargas de velocidad para el promedio
+			contador++;
+			contadorVelocidad++;
+			
 		}
 
 	promedioVelocidad=acumuladorVelocidad/contadorVelocidad;
 
-	alert("\nEl promedio de velocidades es "+promedioVelocidad+"km/h"+
-			"\nLa velocidad más baja es de "+velocidadMenor+"km/h"+
-			"\ncon el tipo de combustible "+combustibleMenor+
-			"\nCantidad de combustibles líquidos que superan los 100km/h "+contadorL100+
-			"\nLa mayor velocidad de combustible sólido es "+velocidadMayor);
+	alert("\nEl promedio de velocidades es "+promedioVelocidad+
+			"\nLa velocidad más baja "+velocidadMenor+
+			"\ncon el combustible "+combustibleMenor+
+			"\nLa cantidad que con combustible 'l' se superaron los 100km/h "+contadorLiquido100+
+			"\nLa velocidad más alta con combustible sólido es "+velocidadAltaSolido);
 
 }

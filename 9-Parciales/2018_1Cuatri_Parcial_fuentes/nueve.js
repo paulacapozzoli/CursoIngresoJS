@@ -14,82 +14,86 @@ function mostrar()
 	var precio;
 	var litros;
 	var respuesta;
-	var contadorPares;
 	var contador;
-	var marcaBarato;
+	var contadorPreciosPares;
 	var precioBarato;
+	var marcaBarata;
 	var litrosBarato;
-	var contadorMenor50;
-	var acumuladorPrecio;
-	var promedioPrecio;
+	var contadorMenor50
+	var contadorPrecios;
+	var acumuladorPrecios;
+	var promedioPrecios;
 	var contadorTres;
-	var precioMin;
 	var precioMax;
+	var precioMin;
 
-	contadorPares=0;
 	contador=0;
+	contadorPreciosPares=0;
 	contadorMenor50=0;
-	acumuladorPrecio=0;
+	contadorPrecios=0;
+	acumuladorPrecios=0;
 	contadorTres=0;
 
-	respuesta=prompt("Ingrese 'si' para comenzar a cargar datos");
+	respuesta=prompt("Ingrese 'si' para comenzar carga");
 
 	while (respuesta=="si")
 		{
 			marca=prompt("Ingrese la marca");
-			precio=prompt("Ingrese el precio");
-			//valido precio
+			precio=prompt("Ingrese precio");
+			//valido
 			while (precio<30||precio>100)
 				{
-					precio=prompt("Error, el precio debe ser entre $30 y $100");
+					precio=prompt("ERROR, ingrese precio entre 30 y 100");
 				}
 			precio=parseInt(precio);
 
-			litros=prompt("Ingrese los litros");
-			//valido litros
-			while (litros<0||litros>3)
+			litros=prompt("Ingrese litros");
+			//valido
+			while(litros<1||litros>3)
 				{
-					litros=prompt("Error, los litros deben ser entre 0 y 3");
+					litros=prompt("ERROR, ingrese litros entre 1 y 3");
 				}
 			litros=parseInt(litros);
 
+
 			if (precio%2==0)
 				{
-					contadorPares++;
+					contadorPreciosPares++;
 				}
 			if (contador==0)
 				{
-					marcaBarato=marca;
 					precioBarato=precio;
-					litrosBarato=litros;				
+					marcaBarata=marca;
+					litrosBarato=litros;
 				}
 			else
 				{
 					if (precio<precioBarato)
 						{
 							precioBarato=precio;
-							marcaBarato=marca;
+							marcaBarata=marca;
 							litrosBarato=litros;
-						}					
+						}
 				}
-
+			
 			if (precio<50)
 				{
 					contadorMenor50++;
 				}
 
 			if (litros<3)
+				
 				{
 					if (contadorTres==0)
 						{
-							precioMax=precio;
 							precioMin=precio;
+							precioMax=precio;
 						}
 					else
 						{
-							if(precio<precioMin)
+							if (precio<precioMin)
 								{
-									precioMin=precio;
+									precioMin=precio;									
 								}
 							else
 								{
@@ -97,26 +101,25 @@ function mostrar()
 										{
 											precioMax=precio;
 										}
-								}
+								}		
 						}
 					contadorTres++;					
 				}
 
-
-			acumuladorPrecio=acumuladorPrecio+precio;
-
+			acumuladorPrecios=acumuladorPrecios+precio;
+			contadorPrecios++;
 			contador++;
-			
-			respuesta=prompt("Ingrese 'si' para continuar con la carga");
+			respuesta=prompt("Ingrese 'si' para continuar la carga");
 		}
 
-	promedioPrecio=acumuladorPrecio/contador;
+	promedioPrecios=acumuladorPrecios/contadorPrecios;
 
-	document.write("La cantidad de precios pares es: "+contadorPares+
-		"<br>De la gaseosa más barata, la marca es: "+marcaBarato+ " y los litros: "+litrosBarato+
-		"<br>La cantidad de gaseosas de valor menor a $50 es: "+contadorMenor50+
-		"<br>El promedio de todos los precios es: "+promedioPrecio+
-		"<br>De las gaseosas de menos de 3lts, el precio mínimo es: "+precioMin+" y el precio máximo es: "+precioMax);
-
+	document.write("<br>La cantidad de precios pares es "+contadorPreciosPares+
+			"<br>La marca del más barato es "+marcaBarata+
+			"<br>cantidad de litros "+litrosBarato+
+			"<br>La cantidad de gaseosas que valen menos de 50 es "+contadorMenor50+
+			"<br>El promedio del precio de todas las gaseosas es "+promedioPrecios+
+			"<br>de todas las gaseosas menores a 3 litros el precio max es "+precioMax+
+			"<br>y el precio min es "+precioMin);
 
 }
